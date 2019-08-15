@@ -44,19 +44,19 @@ namespace Assignment4
         }
 
         /// <summary>
-        /// count number of elements that aren't empty and save in array
+        /// keeps track of number of saved guests in the array
         /// </summary>
         /// <param name="coutGuest"></param>
         /// <returns></returns>
-        private int NumOfGuest(int coutGuest)
+        private int NumOfGuest()
         {
             int guestCount = 0;
             int index;
 
             for (index = 0; index < guestList.Length; index++)
             {
-                // check if list is empty
-                if (string.IsNullOrEmpty(guestList[index]))
+                // check if list isn't empty
+                if (!string.IsNullOrEmpty(guestList[index]))
                 {
                     guestCount++;
                     Console.Out.WriteLine(guestCount);
@@ -66,8 +66,81 @@ namespace Assignment4
             return guestCount;
         }
 
-        // add new guest
-        // add first/last name
+            /// <summary>
+            /// locate empty array index
+            /// it indicates if the array is full by returning -1
+            /// </summary>
+            /// <returns></returns>
+        private int LocateEmptyIndex()
+        {
+            // locate empty index on array
+            int emptyIndexPos = -1;
+            int index;
 
+            // last index on array array.Length -1
+            for (index = guestList.Length - 1; index >= 0; index--)
+            {
+                Console.Out.WriteLine(guestList[index]);
+                if (string.IsNullOrEmpty(guestList[index]))
+                {
+                    emptyIndexPos = index;
+                    Console.Out.WriteLine(guestList[index]);
+                    break;
+                }
+            }
+
+            return emptyIndexPos;
+        }
+
+        /// <summary>
+        /// locate the empty index and add firstName/lasName on array
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <returns></returns>
+        public bool AddNewGuest(string firstName, string lastName)
+        {
+            bool isValid = true;
+            int emptyIndex = LocateEmptyIndex();
+
+            if (emptyIndex != -1)
+            {
+                guestList[emptyIndex] = GustName(firstName, lastName);
+            }
+            else
+            {
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        public string GustName(string firstName, string lasName)
+        {
+            return lasName.ToUpper() + " , " + firstName;
+        }
+
+        public string[] GetGuestList()
+        {
+            int numOfRegisteredGuests = NumOfGuest();
+            int i, j;
+
+            if (numOfRegisteredGuests <= 0)
+            {
+                return null;
+            }
+
+            string[] guests = new string[numOfRegisteredGuests];
+
+            for(i = 0, j = 0; i < guestList.Length; i++)
+            {
+                if (!string.IsNullOrEmpty (guestList[i]))
+                {
+                    guests[j++] = guestList[i];
+                }
+            }
+
+            return guests;
+        }
     }
 }
