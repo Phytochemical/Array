@@ -34,22 +34,22 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textMaxNum = new System.Windows.Forms.TextBox();
-            this.textAmount = new System.Windows.Forms.TextBox();
-            this.textFirstName = new System.Windows.Forms.TextBox();
-            this.textLastName = new System.Windows.Forms.TextBox();
+            this.txtMaxNum = new System.Windows.Forms.TextBox();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.buttonCreateList = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.buttonChange = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupAddGuests = new System.Windows.Forms.GroupBox();
+            this.grpNewParty = new System.Windows.Forms.GroupBox();
+            this.grpAddGuest = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.labelTotalCost = new System.Windows.Forms.Label();
-            this.labelTotalGuest = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            this.groupAddGuests.SuspendLayout();
+            this.lbTotalCost = new System.Windows.Forms.Label();
+            this.lblTotalGuest = new System.Windows.Forms.Label();
+            this.lstAllGuest = new System.Windows.Forms.ListBox();
+            this.grpNewParty.SuspendLayout();
+            this.grpAddGuest.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -107,33 +107,33 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Total guests";
             // 
-            // textMaxNum
+            // txtMaxNum
             // 
-            this.textMaxNum.Location = new System.Drawing.Point(169, 33);
-            this.textMaxNum.Name = "textMaxNum";
-            this.textMaxNum.Size = new System.Drawing.Size(55, 20);
-            this.textMaxNum.TabIndex = 8;
+            this.txtMaxNum.Location = new System.Drawing.Point(169, 33);
+            this.txtMaxNum.Name = "txtMaxNum";
+            this.txtMaxNum.Size = new System.Drawing.Size(55, 20);
+            this.txtMaxNum.TabIndex = 8;
             // 
-            // textAmount
+            // txtAmount
             // 
-            this.textAmount.Location = new System.Drawing.Point(169, 60);
-            this.textAmount.Name = "textAmount";
-            this.textAmount.Size = new System.Drawing.Size(55, 20);
-            this.textAmount.TabIndex = 9;
+            this.txtAmount.Location = new System.Drawing.Point(169, 60);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(55, 20);
+            this.txtAmount.TabIndex = 9;
             // 
-            // textFirstName
+            // txtFirstName
             // 
-            this.textFirstName.Location = new System.Drawing.Point(87, 33);
-            this.textFirstName.Name = "textFirstName";
-            this.textFirstName.Size = new System.Drawing.Size(133, 20);
-            this.textFirstName.TabIndex = 10;
+            this.txtFirstName.Location = new System.Drawing.Point(87, 33);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(133, 20);
+            this.txtFirstName.TabIndex = 10;
             // 
-            // textLastName
+            // txtLastName
             // 
-            this.textLastName.Location = new System.Drawing.Point(87, 62);
-            this.textLastName.Name = "textLastName";
-            this.textLastName.Size = new System.Drawing.Size(133, 20);
-            this.textLastName.TabIndex = 11;
+            this.txtLastName.Location = new System.Drawing.Point(87, 62);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(133, 20);
+            this.txtLastName.TabIndex = 11;
             // 
             // buttonCreateList
             // 
@@ -143,25 +143,17 @@
             this.buttonCreateList.TabIndex = 14;
             this.buttonCreateList.Text = "Create list";
             this.buttonCreateList.UseVisualStyleBackColor = true;
+            this.buttonCreateList.Click += new System.EventHandler(this.buttonCreateList_Click);
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(71, 97);
+            this.buttonAdd.Location = new System.Drawing.Point(71, 107);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(91, 26);
             this.buttonAdd.TabIndex = 15;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            // 
-            // textBox7
-            // 
-            this.textBox7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
-            this.textBox7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox7.Location = new System.Drawing.Point(270, 52);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(251, 281);
-            this.textBox7.TabIndex = 16;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonChange
             // 
@@ -180,36 +172,37 @@
             this.buttonDelete.TabIndex = 18;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // groupBox1
+            // grpNewParty
             // 
-            this.groupBox1.Controls.Add(this.buttonCreateList);
-            this.groupBox1.Controls.Add(this.textAmount);
-            this.groupBox1.Controls.Add(this.textMaxNum);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(24, 36);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(240, 133);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "New party";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.grpNewParty.Controls.Add(this.buttonCreateList);
+            this.grpNewParty.Controls.Add(this.txtAmount);
+            this.grpNewParty.Controls.Add(this.txtMaxNum);
+            this.grpNewParty.Controls.Add(this.label3);
+            this.grpNewParty.Controls.Add(this.label2);
+            this.grpNewParty.Location = new System.Drawing.Point(24, 36);
+            this.grpNewParty.Name = "grpNewParty";
+            this.grpNewParty.Size = new System.Drawing.Size(240, 133);
+            this.grpNewParty.TabIndex = 19;
+            this.grpNewParty.TabStop = false;
+            this.grpNewParty.Text = "New party";
+            this.grpNewParty.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // groupAddGuests
+            // grpAddGuest
             // 
-            this.groupAddGuests.Controls.Add(this.buttonAdd);
-            this.groupAddGuests.Controls.Add(this.textLastName);
-            this.groupAddGuests.Controls.Add(this.textFirstName);
-            this.groupAddGuests.Controls.Add(this.label6);
-            this.groupAddGuests.Controls.Add(this.label5);
-            this.groupAddGuests.Location = new System.Drawing.Point(25, 183);
-            this.groupAddGuests.Name = "groupAddGuests";
-            this.groupAddGuests.Size = new System.Drawing.Size(239, 140);
-            this.groupAddGuests.TabIndex = 20;
-            this.groupAddGuests.TabStop = false;
-            this.groupAddGuests.Text = "Invite guest";
-            this.groupAddGuests.Enter += new System.EventHandler(this.groupBox2_Enter);
+            this.grpAddGuest.Controls.Add(this.buttonAdd);
+            this.grpAddGuest.Controls.Add(this.txtLastName);
+            this.grpAddGuest.Controls.Add(this.txtFirstName);
+            this.grpAddGuest.Controls.Add(this.label6);
+            this.grpAddGuest.Controls.Add(this.label5);
+            this.grpAddGuest.Location = new System.Drawing.Point(25, 183);
+            this.grpAddGuest.Name = "grpAddGuest";
+            this.grpAddGuest.Size = new System.Drawing.Size(239, 140);
+            this.grpAddGuest.TabIndex = 20;
+            this.grpAddGuest.TabStop = false;
+            this.grpAddGuest.Text = "Invite guest";
+            this.grpAddGuest.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label9
             // 
@@ -220,44 +213,52 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "Guest list";
             // 
-            // labelTotalCost
+            // lbTotalCost
             // 
-            this.labelTotalCost.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelTotalCost.Location = new System.Drawing.Point(147, 339);
-            this.labelTotalCost.Name = "labelTotalCost";
-            this.labelTotalCost.Size = new System.Drawing.Size(117, 13);
-            this.labelTotalCost.TabIndex = 22;
+            this.lbTotalCost.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbTotalCost.Location = new System.Drawing.Point(147, 339);
+            this.lbTotalCost.Name = "lbTotalCost";
+            this.lbTotalCost.Size = new System.Drawing.Size(117, 13);
+            this.lbTotalCost.TabIndex = 22;
             // 
-            // labelTotalGuest
+            // lblTotalGuest
             // 
-            this.labelTotalGuest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelTotalGuest.Location = new System.Drawing.Point(147, 366);
-            this.labelTotalGuest.Name = "labelTotalGuest";
-            this.labelTotalGuest.Size = new System.Drawing.Size(117, 13);
-            this.labelTotalGuest.TabIndex = 23;
+            this.lblTotalGuest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTotalGuest.Location = new System.Drawing.Point(147, 366);
+            this.lblTotalGuest.Name = "lblTotalGuest";
+            this.lblTotalGuest.Size = new System.Drawing.Size(117, 13);
+            this.lblTotalGuest.TabIndex = 23;
+            // 
+            // lstAllGuest
+            // 
+            this.lstAllGuest.FormattingEnabled = true;
+            this.lstAllGuest.Location = new System.Drawing.Point(272, 52);
+            this.lstAllGuest.Name = "lstAllGuest";
+            this.lstAllGuest.Size = new System.Drawing.Size(225, 264);
+            this.lstAllGuest.TabIndex = 24;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 412);
-            this.Controls.Add(this.labelTotalGuest);
-            this.Controls.Add(this.labelTotalCost);
+            this.Controls.Add(this.lstAllGuest);
+            this.Controls.Add(this.lblTotalGuest);
+            this.Controls.Add(this.lbTotalCost);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.groupAddGuests);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpAddGuest);
+            this.Controls.Add(this.grpNewParty);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonChange);
-            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupAddGuests.ResumeLayout(false);
-            this.groupAddGuests.PerformLayout();
+            this.grpNewParty.ResumeLayout(false);
+            this.grpNewParty.PerformLayout();
+            this.grpAddGuest.ResumeLayout(false);
+            this.grpAddGuest.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,20 +271,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textMaxNum;
-        private System.Windows.Forms.TextBox textAmount;
-        private System.Windows.Forms.TextBox textFirstName;
-        private System.Windows.Forms.TextBox textLastName;
+        private System.Windows.Forms.TextBox txtMaxNum;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Button buttonCreateList;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button buttonChange;
         private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupAddGuests;
+        private System.Windows.Forms.GroupBox grpNewParty;
+        private System.Windows.Forms.GroupBox grpAddGuest;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label labelTotalCost;
-        private System.Windows.Forms.Label labelTotalGuest;
+        private System.Windows.Forms.Label lbTotalCost;
+        private System.Windows.Forms.Label lblTotalGuest;
+        private System.Windows.Forms.ListBox lstAllGuest;
     }
 }
 

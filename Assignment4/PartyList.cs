@@ -43,6 +43,11 @@ namespace Assignment4
             }
         }
 
+        public double CalcTotalCost()
+        {
+            return 0.0;
+        }
+
         /// <summary>
         /// keeps track of number of saved guests in the array
         /// </summary>
