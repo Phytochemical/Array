@@ -14,9 +14,7 @@ namespace Assignment4
         // stores cost
         private double costPerPerson;
 
-        /// <summary>
-        /// store guest names
-        /// </summary>
+        // store guest names
         private string[] guestList;
 
         /// <summary>
@@ -41,11 +39,6 @@ namespace Assignment4
                     costPerPerson = value;
                 }
             }
-        }
-
-        public double CalcTotalCost()
-        {
-            return 0.0;
         }
 
         /// <summary>
@@ -120,11 +113,21 @@ namespace Assignment4
             return isValid;
         }
 
+        /// <summary>
+        /// converts last name to upper case
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lasName"></param>
+        /// <returns></returns>
         public string GustName(string firstName, string lasName)
         {
             return lasName.ToUpper() + " , " + firstName;
         }
 
+        /// <summary>
+        /// save guest name from guestList to registered guest array which contains no empty elements
+        /// </summary>
+        /// <returns></returns>
         public string[] GetGuestList()
         {
             int numOfRegisteredGuests = NumOfGuest();
@@ -146,6 +149,54 @@ namespace Assignment4
             }
 
             return guests;
+        }
+
+        public int Count
+        {
+            get { return NumOfGuest(); }
+        }
+
+        public double CalcTotalCost()
+        {
+            int numOfGuests = NumOfGuest();
+            double totalCost = numOfGuests * costPerPerson;
+
+            return totalCost;
+        }
+
+        /// <summary>
+        /// check index out of upper bound
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool CheckIndex(int index)
+        {
+            return (index >= 0) && (index < guestList.Length);
+        }
+
+        public string GetItemAt (int index)
+        {
+            if (CheckIndex (index))
+            {
+                return guestList[index];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public bool DeleteAt (int index)
+        {
+            if (CheckIndex (index))
+            {
+                guestList[index] = string.Empty;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Assignment4
             txtFirstName.Text = string.Empty;
             txtLastName.Text = string.Empty;
 
-            lbTotalCost.Text = "0.0";
+            lblTotalCost.Text = "0.0";
             lblTotalGuest.Text = string.Empty;
             lstAllGuest.Items.Clear();
 
@@ -78,7 +78,7 @@ namespace Assignment4
             if (int.TryParse (txtMaxNum.Text, out maxNumber) && (maxNumber > 0 ))
             {
                 myPartyList = new PartyList(maxNumber);
-                MessageBox.Show(@"Party list with space for {maxNumber} guests created.", "Success");
+                MessageBox.Show($"Party list with total of {maxNumber} guests created.", "Success");
             }
             else
             {
@@ -121,7 +121,7 @@ namespace Assignment4
             {
                 for (index = 0; index < guestList.Length; index++)
                 {
-                    string str = $"{index + 1,4} {guestList[index],-20}";
+                    string str = $"{index + 1, 4} {guestList[index],-20}";
                     lstAllGuest.Items.Add(str);
                 }
             }
@@ -130,7 +130,9 @@ namespace Assignment4
                 return;
             }
 
-            //double totalCost = myPartyList.C
+            double totalCost = myPartyList.CalcTotalCost();
+            lblTotalCost.Text = totalCost.ToString("0.00");
+            lblTotalGuest.Text = myPartyList.Count.ToString();
         }
 
         /// <summary>
@@ -217,6 +219,26 @@ namespace Assignment4
                 //myPartyList.DeleteAt();
                 UpdateGUI();
             }
+        }
+
+        private void buttonChange_Click(object sender, EventArgs e)
+        {
+            int index = ListItemBoxSelectCheck();
+
+            if (index < 0)
+            {
+
+            }
+            else if (TrimName())
+            {
+                //myPartyList.ChangeAt(index, txtFirstName.Text, txtLastName.Text);
+                UpdateGUI();
+            }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

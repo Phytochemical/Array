@@ -45,7 +45,7 @@
             this.grpNewParty = new System.Windows.Forms.GroupBox();
             this.grpAddGuest = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.lbTotalCost = new System.Windows.Forms.Label();
+            this.lblTotalCost = new System.Windows.Forms.Label();
             this.lblTotalGuest = new System.Windows.Forms.Label();
             this.lstAllGuest = new System.Windows.Forms.ListBox();
             this.grpNewParty.SuspendLayout();
@@ -55,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 33);
+            this.label2.Location = new System.Drawing.Point(6, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 13);
             this.label2.TabIndex = 1;
@@ -73,7 +73,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 36);
+            this.label5.Location = new System.Drawing.Point(8, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 4;
@@ -91,7 +91,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(48, 339);
+            this.label7.Location = new System.Drawing.Point(34, 314);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 13);
             this.label7.TabIndex = 6;
@@ -101,7 +101,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(48, 366);
+            this.label8.Location = new System.Drawing.Point(34, 337);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 13);
             this.label8.TabIndex = 7;
@@ -123,21 +123,21 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(87, 33);
+            this.txtFirstName.Location = new System.Drawing.Point(88, 33);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(133, 20);
             this.txtFirstName.TabIndex = 10;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(87, 62);
+            this.txtLastName.Location = new System.Drawing.Point(88, 62);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(133, 20);
             this.txtLastName.TabIndex = 11;
             // 
             // buttonCreateList
             // 
-            this.buttonCreateList.Location = new System.Drawing.Point(72, 91);
+            this.buttonCreateList.Location = new System.Drawing.Point(74, 86);
             this.buttonCreateList.Name = "buttonCreateList";
             this.buttonCreateList.Size = new System.Drawing.Size(91, 26);
             this.buttonCreateList.TabIndex = 14;
@@ -147,7 +147,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(71, 107);
+            this.buttonAdd.Location = new System.Drawing.Point(71, 97);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(91, 26);
             this.buttonAdd.TabIndex = 15;
@@ -157,16 +157,17 @@
             // 
             // buttonChange
             // 
-            this.buttonChange.Location = new System.Drawing.Point(298, 339);
+            this.buttonChange.Location = new System.Drawing.Point(281, 293);
             this.buttonChange.Name = "buttonChange";
             this.buttonChange.Size = new System.Drawing.Size(91, 26);
             this.buttonChange.TabIndex = 17;
             this.buttonChange.Text = "Change";
             this.buttonChange.UseVisualStyleBackColor = true;
+            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(406, 339);
+            this.buttonDelete.Location = new System.Drawing.Point(394, 293);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(91, 26);
             this.buttonDelete.TabIndex = 18;
@@ -181,9 +182,9 @@
             this.grpNewParty.Controls.Add(this.txtMaxNum);
             this.grpNewParty.Controls.Add(this.label3);
             this.grpNewParty.Controls.Add(this.label2);
-            this.grpNewParty.Location = new System.Drawing.Point(24, 36);
+            this.grpNewParty.Location = new System.Drawing.Point(24, 26);
             this.grpNewParty.Name = "grpNewParty";
-            this.grpNewParty.Size = new System.Drawing.Size(240, 133);
+            this.grpNewParty.Size = new System.Drawing.Size(240, 121);
             this.grpNewParty.TabIndex = 19;
             this.grpNewParty.TabStop = false;
             this.grpNewParty.Text = "New party";
@@ -196,9 +197,9 @@
             this.grpAddGuest.Controls.Add(this.txtFirstName);
             this.grpAddGuest.Controls.Add(this.label6);
             this.grpAddGuest.Controls.Add(this.label5);
-            this.grpAddGuest.Location = new System.Drawing.Point(25, 183);
+            this.grpAddGuest.Location = new System.Drawing.Point(27, 153);
             this.grpAddGuest.Name = "grpAddGuest";
-            this.grpAddGuest.Size = new System.Drawing.Size(239, 140);
+            this.grpAddGuest.Size = new System.Drawing.Size(239, 133);
             this.grpAddGuest.TabIndex = 20;
             this.grpAddGuest.TabStop = false;
             this.grpAddGuest.Text = "Invite guest";
@@ -207,24 +208,25 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(358, 36);
+            this.label9.Location = new System.Drawing.Point(357, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 13);
             this.label9.TabIndex = 21;
             this.label9.Text = "Guest list";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // lbTotalCost
+            // lblTotalCost
             // 
-            this.lbTotalCost.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbTotalCost.Location = new System.Drawing.Point(147, 339);
-            this.lbTotalCost.Name = "lbTotalCost";
-            this.lbTotalCost.Size = new System.Drawing.Size(117, 13);
-            this.lbTotalCost.TabIndex = 22;
+            this.lblTotalCost.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTotalCost.Location = new System.Drawing.Point(131, 313);
+            this.lblTotalCost.Name = "lblTotalCost";
+            this.lblTotalCost.Size = new System.Drawing.Size(117, 13);
+            this.lblTotalCost.TabIndex = 22;
             // 
             // lblTotalGuest
             // 
             this.lblTotalGuest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTotalGuest.Location = new System.Drawing.Point(147, 366);
+            this.lblTotalGuest.Location = new System.Drawing.Point(131, 337);
             this.lblTotalGuest.Name = "lblTotalGuest";
             this.lblTotalGuest.Size = new System.Drawing.Size(117, 13);
             this.lblTotalGuest.TabIndex = 23;
@@ -232,19 +234,19 @@
             // lstAllGuest
             // 
             this.lstAllGuest.FormattingEnabled = true;
-            this.lstAllGuest.Location = new System.Drawing.Point(272, 52);
+            this.lstAllGuest.Location = new System.Drawing.Point(272, 36);
             this.lstAllGuest.Name = "lstAllGuest";
-            this.lstAllGuest.Size = new System.Drawing.Size(225, 264);
+            this.lstAllGuest.Size = new System.Drawing.Size(225, 251);
             this.lstAllGuest.TabIndex = 24;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 412);
+            this.ClientSize = new System.Drawing.Size(517, 362);
             this.Controls.Add(this.lstAllGuest);
             this.Controls.Add(this.lblTotalGuest);
-            this.Controls.Add(this.lbTotalCost);
+            this.Controls.Add(this.lblTotalCost);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.grpAddGuest);
             this.Controls.Add(this.grpNewParty);
@@ -282,7 +284,7 @@
         private System.Windows.Forms.GroupBox grpNewParty;
         private System.Windows.Forms.GroupBox grpAddGuest;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lbTotalCost;
+        private System.Windows.Forms.Label lblTotalCost;
         private System.Windows.Forms.Label lblTotalGuest;
         private System.Windows.Forms.ListBox lstAllGuest;
     }
