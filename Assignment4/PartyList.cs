@@ -64,11 +64,11 @@ namespace Assignment4
             return guestCount;
         }
 
-            /// <summary>
-            /// locate empty array index
-            /// it indicates if the array is full by returning -1
-            /// </summary>
-            /// <returns></returns>
+        /// <summary>
+        /// locate empty array index
+        /// it indicates if the array is full by returning -1
+        /// </summary>
+        /// <returns></returns>
         private int LocateEmptyIndex()
         {
             // locate empty index on array
@@ -140,11 +140,12 @@ namespace Assignment4
 
             string[] guests = new string[numOfRegisteredGuests];
 
-            for(i = 0, j = 0; i < guestList.Length; i++)
+            for (i = 0, j = 0; i < guestList.Length; i++)
             {
-                if (!string.IsNullOrEmpty (guestList[i]))
+                if (!string.IsNullOrEmpty(guestList[i]))
                 {
-                    guests[j++] = guestList[i];
+                    guests[j] = guestList[i];
+                    j++;
                 }
             }
 
@@ -174,9 +175,14 @@ namespace Assignment4
             return (index >= 0) && (index < guestList.Length);
         }
 
-        public string GetItemAt (int index)
+        /// <summary>
+        /// check index and if it's empty returns null
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public string GetItemAt(int index)
         {
-            if (CheckIndex (index))
+            if (CheckIndex(index) )
             {
                 return guestList[index];
             }
@@ -186,17 +192,59 @@ namespace Assignment4
             }
         }
 
-        public bool DeleteAt (int index)
+        /// <summary>
+        /// if item is empty moves index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool DeleteItemAt(int index)
         {
-            if (CheckIndex (index))
+            bool isItemEmpty = false;
+
+            if (CheckIndex (index) )
             {
                 guestList[index] = string.Empty;
-                return true;
+                MoveElementsOneStopToLeft(index);
+                isItemEmpty = true;
+            }
+            return isItemEmpty;
+        }
+
+        private void MoveElementsOneStopToLeft(int index)
+        {
+            for (int counter = index + 1; counter < guestList.Length; counter++)
+            {
+                guestList[counter - 1] = guestList[counter];
+                guestList[counter] = string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// returns last name in upper case and prints the full name
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <returns></returns>
+        private string FullName(string firstName, string lastName)
+        {
+            return lastName.ToUpper() + " , " + firstName;
+        }
+
+        public bool ChangeItemAt(int index, string firstName, string lastName)
+        {
+            bool isValid = false;
+
+            if (CheckIndex(index))
+            {
+                guestList[index] = FullName(firstName, lastName);
             }
             else
             {
-                return false;
+                isValid = true;
             }
+
+            return isValid;
         }
+        
     }
 }

@@ -216,7 +216,7 @@ namespace Assignment4
             }
             else
             {
-                //myPartyList.DeleteAt();
+                myPartyList.DeleteItemAt(index);
                 UpdateGUI();
             }
         }
@@ -239,6 +239,19 @@ namespace Assignment4
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lstAllGuest_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = lstAllGuest.SelectedIndex;
+
+            if (index >= 0)
+            {
+                string name = myPartyList.GetItemAt(index);
+                string[] names = name.Split(',');
+                txtFirstName.Text = names[1].Trim();
+                txtLastName.Text = names[0].Trim();
+            }
         }
     }
 }
