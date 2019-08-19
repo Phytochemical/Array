@@ -126,6 +126,7 @@ namespace Assignment4
 
         /// <summary>
         /// save guest name from guestList to registered guest array which contains no empty elements
+        /// must save array to new array since it's immutable
         /// </summary>
         /// <returns></returns>
         public string[] GetGuestList()
@@ -193,7 +194,7 @@ namespace Assignment4
         }
 
         /// <summary>
-        /// if item is empty moves index
+        /// empties element to be deleted at specified index and moves the indes with value by one
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
@@ -203,13 +204,19 @@ namespace Assignment4
 
             if (CheckIndex (index) )
             {
-                guestList[index] = string.Empty;
+                // do not use Array.Clear(guestList, index, length) it throws index out of bounds at the last index
+                guestList[index] = null;
+                // move empty 
                 MoveElementsOneStopToLeft(index);
                 isItemEmpty = true;
             }
             return isItemEmpty;
         }
 
+        /// <summary>
+        /// moves index with empty element
+        /// </summary>
+        /// <param name="index"></param>
         private void MoveElementsOneStopToLeft(int index)
         {
             for (int counter = index + 1; counter < guestList.Length; counter++)

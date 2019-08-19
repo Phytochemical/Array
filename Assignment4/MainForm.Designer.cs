@@ -44,7 +44,7 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.grpNewParty = new System.Windows.Forms.GroupBox();
             this.grpAddGuest = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.lblTotalCost = new System.Windows.Forms.Label();
             this.lblTotalGuest = new System.Windows.Forms.Label();
             this.lstAllGuest = new System.Windows.Forms.ListBox();
@@ -205,15 +205,15 @@
             this.grpAddGuest.Text = "Invite guest";
             this.grpAddGuest.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // label9
+            // labelTitle
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(357, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 13);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Guest list";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Location = new System.Drawing.Point(357, 9);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(50, 13);
+            this.labelTitle.TabIndex = 21;
+            this.labelTitle.Text = "Guest list";
+            this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
             // 
             // lblTotalCost
             // 
@@ -234,7 +234,7 @@
             // lstAllGuest
             // 
             this.lstAllGuest.FormattingEnabled = true;
-            this.lstAllGuest.Location = new System.Drawing.Point(272, 36);
+            this.lstAllGuest.Location = new System.Drawing.Point(270, 35);
             this.lstAllGuest.Name = "lstAllGuest";
             this.lstAllGuest.Size = new System.Drawing.Size(225, 251);
             this.lstAllGuest.TabIndex = 24;
@@ -248,7 +248,7 @@
             this.Controls.Add(this.lstAllGuest);
             this.Controls.Add(this.lblTotalGuest);
             this.Controls.Add(this.lblTotalCost);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.grpAddGuest);
             this.Controls.Add(this.grpNewParty);
             this.Controls.Add(this.buttonDelete);
@@ -284,7 +284,7 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.GroupBox grpNewParty;
         private System.Windows.Forms.GroupBox grpAddGuest;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label lblTotalCost;
         private System.Windows.Forms.Label lblTotalGuest;
         private System.Windows.Forms.ListBox lstAllGuest;
