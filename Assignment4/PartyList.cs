@@ -207,7 +207,7 @@ namespace Assignment4
                 // do not use Array.Clear(guestList, index, length) it throws index out of bounds at the last index
                 guestList[index] = null;
                 // move empty 
-                MoveElementsOneStopToLeft(index);
+                MoveEmptyElementOneStop(index);
                 isItemEmpty = true;
             }
             return isItemEmpty;
@@ -217,10 +217,11 @@ namespace Assignment4
         /// moves index with empty element
         /// </summary>
         /// <param name="index"></param>
-        private void MoveElementsOneStopToLeft(int index)
+        private void MoveEmptyElementOneStop(int index)
         {
             for (int counter = index + 1; counter < guestList.Length; counter++)
             {
+                // move element by one index from the index of element that is supposed to be deleted
                 guestList[counter - 1] = guestList[counter];
                 guestList[counter] = string.Empty;
             }
