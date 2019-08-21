@@ -177,7 +177,7 @@ namespace Assignment4
         }
 
         /// <summary>
-        /// check index and if it's empty returns null
+        /// check index and returns element of index if it's empty returns null
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
@@ -238,11 +238,18 @@ namespace Assignment4
             return lastName.ToUpper() + " , " + firstName;
         }
 
+        /// <summary>
+        /// if index isn't out of bounds 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <returns></returns>
         public bool ChangeItemAt(int index, string firstName, string lastName)
         {
             bool isValid = false;
 
-            if (CheckIndex(index))
+            if (CheckIndex(index) )
             {
                 guestList[index] = FullName(firstName, lastName);
             }
@@ -253,6 +260,5 @@ namespace Assignment4
 
             return isValid;
         }
-        
     }
 }

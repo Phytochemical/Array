@@ -108,7 +108,7 @@ namespace Assignment4
         }
 
         /// <summary>
-        /// 
+        /// revise guestList based on the user selection and aclculate total guest and cost
         /// </summary>
         private void UpdateGUI()
         {
@@ -156,6 +156,10 @@ namespace Assignment4
             }
         }
 
+        /// <summary>
+        /// if text isn't empty removes white spaces
+        /// </summary>
+        /// <returns></returns>
         private bool TrimName()
         {
             if ( (!ValidateText (txtFirstName.Text)) || (!ValidateText (txtLastName.Text)) )
@@ -173,7 +177,7 @@ namespace Assignment4
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (TrimName ())
+            if (TrimName() )
             {
                 bool isInputValid = myPartyList.AddNewGuest(txtFirstName.Text, txtLastName.Text);
 
@@ -189,7 +193,7 @@ namespace Assignment4
         }
 
         /// <summary>
-        /// check
+        /// check if index from list is selected and if not show message
         /// </summary>
         /// <returns></returns>
         private int ListItemBoxSelectCheck()
@@ -229,9 +233,9 @@ namespace Assignment4
             {
 
             }
-            else if (TrimName())
+            else if (TrimName() )
             {
-                //myPartyList.ChangeAt(index, txtFirstName.Text, txtLastName.Text);
+                myPartyList.ChangeItemAt(index, txtFirstName.Text, txtLastName.Text);
                 UpdateGUI();
             }
         }
@@ -241,6 +245,11 @@ namespace Assignment4
 
         }
 
+        /// <summary>
+        /// if index isn't null splits full namd to first and last name at selected index
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstAllGuest_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = lstAllGuest.SelectedIndex;
